@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WLQ</title>
+    <link
+      rel="stylesheet"
+      href="./styles/maincss.css"
+      crossorigin="anonymous"
+    />
+
+    <!-- Font Awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <!-- load Material Icons font -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+      crossorigin
+    />
+    <!-- load the Lato font in different weights (400 and 700) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+      crossorigin
+    />
+    <!-- converting DOM elements to an image -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <!-- "xlsx" library for reading and writing Excel files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.6/xlsx.core.min.js"></script>
+    <!-- D3.js library version 6 for data visualization and manipulation -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+  </head>
+  <body>
+    <div class="all-wrapper">
+      <!-- NAVIGATION BAR-->
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="logo">WLQ</a>
+          <input type="checkbox" name="" id="toggle" />
+          <label for="toggle"><i class="material-icons">menu</i></label>
+          <div class="menu">
+            <ul>
+              <li><a href="#" id="excel-button">Excel → JSON</a></li>
+              <li>
+                <a href="#">Import</a>
+                <ul>
+                  <li>
+                    <a
+                      href="#"
+                      onclick="importJSON().then(data => {
+                  WlqData = data;
+                  filtrirani = data.filter(item => item.UTM_10x10 !== undefined && item.UTM_10x10 !== `Neprecizan podatak`);
+                  console.log(WlqData);
+                  console.log(filtrirani);
+                  showUniqueData();
+                });"
+                      >JSON</a
+                    >
+                  </li>
+                  <li><a href="#">EXCEL</a></li>
+                  <li><a href="#">CSV</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Export</a>
+                <ul>
+                  <li><a href="#" id="png">as PNG</a></li>
+                  <li><a href="#" id="jpg">as JPEG</a></li>
+                  <li><a href="#" id="svg">as SVG</a></li>
+                  <li><a href="#" id="tiff">as TIFF</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">About App</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- MAP WITH DATA -->
+      <div class="container-map">
+        <img class="image" src="./assets/srbija.jpg" alt="Map of Serbia" />
+      </div>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <div class="footer-wrapper">
+          <div class="navigations">
+            <div class="navigation">
+              <h3>About WLQ</h3>
+              <ul>
+                <li>Who are we</li>
+                <li>Our team</li>
+              </ul>
+            </div>
+            <div class="navigation">
+              <h3>How to Use App</h3>
+              <ul>
+                <li>Getting Started</li>
+                <li>FAQs</li>
+              </ul>
+            </div>
+            <div class="navigation">
+              <h3>Legal</h3>
+              <ul>
+                <li>Privacy Policy</li>
+                <li>Terms of Use</li>
+              </ul>
+            </div>
+            <div class="navigation" id="contact">
+              <h3><a href="#">CONTACT US</a></h3>
+            </div>
+            <!-- Hidden div that contains the form -->
+            <div class="form-container" style="display: none">
+              <h3>Want to get in touch?</h3>
+              <form>
+                <div class="wrapper-sendmail">
+                  <div class="wrapper-name">
+                    <label for="name">NAME</label>
+                    <input
+                      type="text"
+                      id="name"
+                      placeholder="Enter your name"
+                    />
+                  </div>
+                  <div class="wrapper-email">
+                    <label for="email">EMAIL</label>
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder="Enter your email"
+                    />
+                  </div>
+                </div>
+                <label for="message">FORM LABEL</label>
+                <textarea
+                  id="message"
+                  placeholder="Enter your message"
+                ></textarea>
+                <div class="button-form-container">
+                  <button type="submit">Send</button>
+                  <button class="close-btn">Close</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="icon-wrapper">
+            <a
+              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              class="icon facebook"
+            >
+              <div class="tooltip">Facebook</div>
+              <span><i class="fab fa-facebook-f"></i></span>
+            </a>
+            <a
+              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              class="icon twitter"
+            >
+              <div class="tooltip">Twitter</div>
+              <span><i class="fab fa-twitter"></i></span>
+            </a>
+            <a
+              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              class="icon instagram"
+            >
+              <div class="tooltip">Instagram</div>
+              <span><i class="fab fa-instagram"></i></span>
+            </a>
+            <a
+              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              class="icon github"
+            >
+              <div class="tooltip">Github</div>
+              <span><i class="fab fa-github"></i></span>
+            </a>
+            <a
+              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              class="icon youtube"
+            >
+              <div class="tooltip">Youtube</div>
+              <span><i class="fab fa-youtube"></i></span>
+            </a>
+          </div>
+        </div>
+        <div class="copy-right">
+          Copyright ©2023:
+          <a
+            href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            class="copy-right-link"
+            >WLQ</a
+          >
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
