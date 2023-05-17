@@ -6,20 +6,12 @@
   box-sizing: border-box;
 }
 
-html,
 body {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-}
-
-body {
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Lato", sans-serif;
+  font: 1.125rem "Lato", sans-serif;
   background-color: var(--clr3);
   line-height: 1.2;
   color: var(--clr2);
@@ -39,16 +31,34 @@ body {
   --clr1: #2f755a;
   --clr2: #c5c6a5;
   --clr3: #ae8f66;
-
   --sirinaBordera: 2px;
   --stilBordera: solid;
   --size: 8px;
   --half-size: calc(var(--size) / 2);
 }
 
-/*! WRAPPER OKO SVEGA */
-/*? WRAPPER OKO SVEGA */
-/** WRAPPER OKO SVEGA */
+/*! MAP/PICUTRE/UTM */
+/*? MAP/PICUTRE/UTM */
+/** MAP/PICUTRE/UTM */
+.image {
+  max-width: 100%;
+  object-fit: contain;
+  height: 100%;
+}
+
+/*! WRAPPERI */
+/*? WRAPPERI */
+/** WRAPPERI */
+.hero-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow: hidden;
+  justify-content: center;
+  height: 100%;
+  max-width: 1440px;
+  align-self: center;
+}
 
 .all-wrapper {
   display: flex;
@@ -59,6 +69,145 @@ body {
   width: 100%;
 }
 
+.variables-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--clr2);
+  text-align: center;
+  flex: 1;
+  justify-content: space-between;
+}
+
+/*! INPUTI */
+/*? INPUTI */
+/** INPUTI */
+input {
+  border: 0.2em solid var(--clr1);
+  background-color: var(--clr3);
+  text-align: center;
+  padding: 0.5em;
+  width: 90%;
+  height: 2rem;
+  border-radius: 10px;
+  outline: 0;
+  margin: 0.5rem 0.25rem;
+  color: var(--clr1);
+}
+
+input:focus {
+  box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25),
+    inset 0px 3px 9px rgba(255, 255, 255, 0.3),
+    inset 0px 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0px -8px 36px rgba(0, 0, 0, 0.3),
+    inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
+  background-color: var(--clr1);
+  border: 0.2em solid #d0ff00;
+  box-shadow: 0 0 0.5em var(--clr1);
+  outline: 0;
+  color: var(--clr2);
+}
+
+input::-webkit-input-placeholder {
+  color: var(--clr1);
+}
+input::-moz-placeholder {
+  color: var(--clr1);
+}
+input:-ms-input-placeholder {
+  color: var(--clr1);
+}
+input:-moz-placeholder {
+  color: var(--clr1);
+}
+
+/*! LABEL */
+/*? LABEL */
+/** LABEL */
+label {
+  color: var(--clr1);
+}
+
+/*! BUTTON */
+/*? BUTTON */
+/** BUTTON */
+button {
+  box-sizing: border-box;
+  margin: 1rem 0.25rem;
+  padding: 0.5rem 1rem;
+  color: var(--clr1);
+  font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background-color: var(--clr2);
+  box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25),
+    inset 0px 3px 9px rgba(255, 255, 255, 0.3),
+    inset 0px 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0px -8px 36px rgba(0, 0, 0, 0.3),
+    inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+  text-decoration: none #0d172a solid;
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 0;
+  border-radius: 10px;
+  user-select: none; /*ne znam za sta je ovo*/
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  cursor: pointer;
+  /* width: 200px; */
+}
+
+/*! SELECT */
+/*? SELECT */
+/** SELECT */
+select {
+  text-align: center;
+  width: 90%;
+  box-sizing: border-box;
+  margin: 1rem 0.25rem;
+  color: var(--clr1);
+  font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  padding: 0.5rem 1rem;
+  background-color: var(--clr2);
+  box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25),
+    inset 0px 3px 9px rgba(255, 255, 255, 0.3),
+    inset 0px 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0px -8px 36px rgba(0, 0, 0, 0.3),
+    inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  text-decoration: none #0d172a solid;
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+select:hover {
+  box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25),
+    inset 0px 3px 9px rgba(255, 255, 255, 0.3),
+    inset 0px 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0px -8px 36px rgba(0, 0, 0, 0.3),
+    inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
+  background-color: var(--clr1);
+  color: var(--clr2);
+  box-shadow: 0 0 0 0.15rem #5ceace;
+}
+
+button:hover {
+  box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25),
+    inset 0px 3px 9px rgba(255, 255, 255, 0.3),
+    inset 0px 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0px -8px 36px rgba(0, 0, 0, 0.3),
+    inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
+  background-color: var(--clr1);
+  color: var(--clr2);
+  box-shadow: 0 0 0 0.15rem #5ceace;
+}
+
 /*! NAVIGATION */
 /*? NAVIGATION */
 /** NAVIGATION */
@@ -66,7 +215,7 @@ body {
 nav {
   display: flex;
   align-content: center;
-  height: auto;
+  height: 5rem; /* ovo mozes ili ovako ili stavi na auto*/
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
@@ -153,7 +302,7 @@ nav ul li ul li {
 
 nav ul li:hover ul {
   display: block;
-  width: 100px;
+  width: 150px;
   padding: 0.5rem;
 }
 
@@ -228,9 +377,6 @@ nav label {
   color: var(--clr3);
 }
 
-/*! ICONICE */
-/*? ICONICE */
-/** ICONICE */
 .icon-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -379,31 +525,11 @@ nav label {
 #contact a {
   text-decoration: none;
   color: var(--clr2);
+  padding: 0.1rem;
 }
 
 #contact a:hover {
   color: var(--clr3);
-}
-
-
-/*! MAP/PICUTRE/UTM */
-/*? MAP/PICUTRE/UTM */
-/** MAP/PICUTRE/UTM */
-.container-map {
-  /* position: relative; */
-  width: 100%;
-  /* height: 100%; */
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.image {
-  object-fit: contain;
-  max-width: 100%;
-  max-height: 100%;
-  height: 100%;
 }
 
 /*! MEDI FOR NAVIGATION MENU */
@@ -428,7 +554,7 @@ nav label {
     color: white;
     cursor: pointer;
   }
-  
+
   nav #toggle:checked ~ .menu {
     height: 100%;
   }
@@ -460,9 +586,9 @@ nav label {
   }
 }
 
-/*! FORMS */
-/*? FORMS */
-/** FORMS */
+/*! FORMS FOR CONTACT*/
+/*? FORMS FOR CONTACT*/
+/** FORMS FOR CONTACT*/
 /* Style the form container */
 .form-container {
   position: relative;
@@ -557,7 +683,378 @@ form {
 
 #message::placeholder {
   font-family: "Lato", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   color: var(--clr2);
   text-align: center;
+}
+
+/*! VARIABLES */
+/*? VARIABLES */
+/** VARIABLES */
+.variables {
+  display: flex;
+  padding: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.variables div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 0.1rem;
+  text-align: center;
+  width: 33.33%;
+}
+
+.variables label {
+  display: block;
+}
+
+.variables input[type="color"] {
+  padding: 0;
+  margin: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  appearance: none;
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border-radius: 50%;
+  border: 0.2em solid var(--clr1);
+}
+
+input[type="color"]::-moz-color-swatch {
+  border-radius: 50%;
+  border: 0.2em solid var(--clr1);
+}
+
+/*! DODAVANJE POJEDINAČNIH 10x10 */
+/*? DODAVANJE POJEDINAČNIH 10x10 */
+/** DODAVANJE POJEDINAČNIH 10x10 */
+.grp_add10x10 {    
+  display: flex;
+  margin: 2rem 0.25rem;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  align-self: center;
+}
+/* signle 10x10 UTM input */
+.add10x10 {
+  margin: 0;
+  border-radius: 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+/* signle 10x10 UTM button */
+.btn10x10 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  border-radius: 0;
+  margin: 0;
+  border: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/*! DEO GDE TI PIŠE ŠTA SI SELEKTOVAO */
+/*? DEO GDE TI PIŠE ŠTA SI SELEKTOVAO */
+/** DEO GDE TI PIŠE ŠTA SI SELEKTOVAO */
+.selectedText {
+  display: flex;
+  width: 90%;
+  margin-top: 1rem;
+  padding: 2rem 1rem;
+  background-color: var(--clr1);
+  color: var(--clr2);
+  border-radius: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/*! DEO GDE BIRAŠ SVE/TAXON/ROD */
+/*? DEO GDE BIRAŠ SVE/TAXON/ROD */
+/** DEO GDE BIRAŠ SVE/TAXON/ROD */
+.dataToShow {
+  display: flex; /** Dodao si naknadno proveri da li mora ovoga da bude*/
+  flex-direction: column; /** Dodao si naknadno proveri da li mora ovoga da bude*/
+  align-items: center; /** Dodao si naknadno proveri da li mora ovoga da bude*/
+  margin: 2rem 0.25rem
+}
+
+/*! OPCIJE IZGLEDA 10x10 UNOSA */
+/*? OPCIJE IZGLEDA 10x10 UNOSA */
+/** OPCIJE IZGLEDA 10x10 UNOSA */
+.product {
+  position: absolute;
+  height: 1.7%;
+  width: 1.9%;
+  border-radius: 3rem;
+  top: calc(calc(00 * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.91%));
+  left: calc(calc(00 * 2.44%) + calc(8.4% + 49.5%) + calc(-20 * 2.44%));
+  transform: translate(-50%, -50%);
+  border-width: var(--sirinaBordera);
+  border-style: var(--stilBordera);
+  border-color: var(--colorF);
+  background-color: var(--colorL);
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border: 4.16px solid transparent;
+  border-top: 0;
+  border-bottom: 8.25px solid red;
+  border-bottom-color: var(--colorF);
+  box-sizing: border-box;
+  position: absolute;
+  top: calc(calc(00 * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.91%));
+  left: calc(calc(00 * 2.44%) + calc(8.4% + 49.5%) + calc(-20 * 2.44%));
+  background-color: var(--colorL);
+  transform: translate(-50%, -50%);
+}
+
+.star {
+  position: absolute;
+  display: block;
+  color: var(--colorF);
+  width: 0px;
+  height: 0px;
+  border-right: var(--half-size) solid transparent;
+  border-bottom: calc(var(--half-size) * 0.7) solid var(--colorF);
+  border-left: var(--half-size) solid transparent;
+  transform: rotate(35deg);
+  box-sizing: border-box;
+  top: calc(calc(00 * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.91%));
+  left: calc(calc(00 * 2.44%) + calc(8.4% + 49.5%) + calc(-20 * 2.44%));
+  transform: translate(-50%, -50%);
+}
+.star:before {
+  border-bottom: calc(var(--half-size) * 0.8) solid var(--colorF);
+  border-left: calc(var(--half-size) * 0.3) solid transparent;
+  border-right: calc(var(--half-size) * 0.3) solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: calc(var(--half-size) * 0.45 * -1);
+  left: calc(var(--half-size) * 0.65 * -1);
+  display: block;
+  transform: rotate(-35deg);
+  content: "";
+}
+.star:after {
+  position: absolute;
+  display: block;
+  color: var(--colorF);
+  top: calc(var(--half-size) * 0.03);
+  left: calc(var(--half-size) * -1.05);
+  width: 0px;
+  height: 0px;
+  border-right: var(--half-size) solid transparent;
+  border-bottom: calc(var(--half-size) * 0.7) solid var(--colorF);
+  border-left: var(--half-size) solid transparent;
+  transform: rotate(-70deg);
+  content: "";
+}
+
+.TiL {
+  height: 1.7%;
+  width: 1.9%;
+  background: linear-gradient(
+    -45deg,
+    var(--colorF),
+    var(--colorF) 49%,
+    white 49%,
+    var(--colorL) 51%
+  );
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: absolute;
+  top: calc(calc(00 * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.91%));
+  left: calc(calc(00 * 2.44%) + calc(8.4% + 49.5%) + calc(-20 * 2.44%));
+  border-color: var(--colorF);
+  background-color: var(--colorL);
+  transform: translate(-50%, -50%);
+}
+.LiH {
+  height: 1.7%;
+  width: 1.9%;
+  background: linear-gradient(
+    180deg,
+    var(--colorH),
+    var(--colorH) 49%,
+    white 49%,
+    var(--colorL) 51%
+  );
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: absolute;
+  top: calc(calc(00 * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.91%));
+  left: calc(calc(00 * 2.44%) + calc(8.4% + 49.5%) + calc(-20 * 2.44%));
+  border-color: var(--colorH);
+  background-color: var(--colorL);
+  transform: translate(-50%, -50%);
+}
+.TiH {
+  box-sizing: border-box;
+  position: absolute;
+  top: calc(calc(00 * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.91%));
+  left: calc(calc(00 * 2.44%) + calc(8.4% + 49.5%) + calc(-20 * 2.44%));
+  height: 1.7%;
+  width: 1.9%;
+  border-radius: 3rem;
+  background: conic-gradient(var(--colorF) 50%, var(--colorH) 0 180%);
+  transform: translate(-50%, -50%);
+}
+.TiLiH {
+  box-sizing: border-box;
+  position: absolute;
+  top: calc(calc(00 * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.91%));
+  left: calc(calc(00 * 2.44%) + calc(8.4% + 49.5%) + calc(-20 * 2.44%));
+  height: 1.7%;
+  width: 1.9%;
+  border-radius: 3rem;
+  background: conic-gradient(
+    var(--colorF) 33%,
+    var(--colorH) 0 66%,
+    var(--colorL) 0
+  );
+  transform: translate(-50%, -50%);
+}
+
+.netacanCrta {
+  clip-path: polygon(0 40%, 0 60%, 100% 60%, 100% 40%);
+  box-sizing: border-box;
+  height: 1.7%;
+  width: 1.9%;
+  position: absolute;
+  top: calc(calc(00 * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.91%));
+  left: calc(calc(00 * 2.44%) + calc(8.4% + 49.5%) + calc(-20 * 2.44%));
+  background: black;
+  transform: translate(-50%, -50%);
+}
+
+.T {
+  box-sizing: border-box;
+  position: absolute;
+  top: calc(calc(00 * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.91%));
+  left: calc(calc(00 * 2.44%) + calc(8.4% + 49.5%) + calc(-20 * 2.44%));
+  height: 1.7%;
+  width: 1.9%;
+  border-radius: 3rem;
+  background-color: var(--colorF);
+  transform: translate(-50%, -50%);
+}
+.L {
+  box-sizing: border-box;
+  position: absolute;
+  top: calc(calc(00 * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.91%));
+  left: calc(calc(00 * 2.44%) + calc(8.4% + 49.5%) + calc(-20 * 2.44%));
+  height: 1.7%;
+  width: 1.9%;
+  border-radius: 3rem;
+  background-color: var(--colorL);
+  transform: translate(-50%, -50%);
+}
+
+.H {
+  box-sizing: border-box;
+  position: absolute;
+  top: calc(calc(00 * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.91%));
+  left: calc(calc(00 * 2.44%) + calc(8.4% + 49.5%) + calc(-20 * 2.44%));
+  height: 1.7%;
+  width: 1.9%;
+  border-radius: 3rem;
+  background-color: var(--colorH);
+  transform: translate(-50%, -50%);
+}
+
+.netacan {
+  clip-path: polygon(0 40%, 0 60%, 100% 60%, 100% 40%);
+  box-sizing: border-box;
+  height: 1.7%;
+  width: 1.9%;
+  position: absolute;
+  top: calc(calc(00 * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.91%));
+  left: calc(calc(00 * 2.44%) + calc(8.4% + 49.5%) + calc(-20 * 2.44%));
+  background: black;
+  transform: translate(-50%, -50%);
+}
+
+.netacanX {
+  clip-path: polygon(
+    20% 0%,
+    0% 20%,
+    30% 50%,
+    0% 80%,
+    20% 100%,
+    50% 70%,
+    80% 100%,
+    100% 80%,
+    70% 50%,
+    100% 20%,
+    80% 0%,
+    50% 30%
+  );
+  box-sizing: border-box;
+  height: 1.7%;
+  width: 1.9%;
+  position: absolute;
+  top: calc(calc(00 * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.91%));
+  left: calc(calc(00 * 2.44%) + calc(8.4% + 49.5%) + calc(-20 * 2.44%));
+  background: var(--colorF);
+  transform: translate(-50%, -50%);
+}
+
+.zvezda {
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  box-sizing: border-box;
+  height: 1.7%;
+  width: 1.9%;
+  position: absolute;
+  top: calc(calc(00 * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.91%));
+  left: calc(calc(00 * 2.44%) + calc(8.4% + 49.5%) + calc(-20 * 2.44%));
+  background: var(--colorF);
+  transform: translate(-50%, -50%);
+}
+
+.sumnjiv {
+  display: block;
+  background: #4444ff;
+  color: #fff;
+  border-radius: 50%;
+  height: 2.7%;
+  width: 2.9%;
+  position: absolute;
+  top: calc(calc(00 * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.91%));
+  left: calc(calc(00 * 2.44%) + calc(8.4% + 49.5%) + calc(-20 * 2.44%));
+  line-height: 40px;
+  text-align: center;
+  font-size: 20px;
+  font-family: Verdana;
+  content: "";
+  background: url("https://api.iconify.design/eva/question-mark-circle-outline.svg")
+    no-repeat center center / contain;
+  transform: translate(-50%, -50%);
 }

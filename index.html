@@ -10,7 +10,6 @@
       href="./styles/maincss.css"
       crossorigin="anonymous"
     />
-
     <!-- Font Awesome icons -->
     <link
       rel="stylesheet"
@@ -83,8 +82,85 @@
       </nav>
 
       <!-- MAP WITH DATA -->
-      <div class="container-map">
+      <div class="hero-wrapper">
         <img class="image" src="./assets/srbija.jpg" alt="Map of Serbia" />
+        <div class="products" id="products"></div>
+
+        <!-- WRAPPER SA SVIM OPCIJAMA -->
+        <div class="variables-wrapper">
+          <!-- deo gde biraš u kom redu se nalaze podaci o UTM kvadratima i na osnovu toga filtriraš -->
+          <div class="utmRow">
+            <select
+              id="headerSelect"
+              onchange="showProbaData(); populateSelect()"
+            >
+              <option value="">-- Row with 10x10 UTM --</option>
+            </select>
+          </div>
+
+          <!-- opadajuci meni gde biras sta ces da pretrazujes SVE/ROD/TAKSON -->
+          <div class="dataType">
+            <select
+              name="selectdataType"
+              id="selectdataType"
+              placceholder="Choose type of data"
+              onchange=""
+            >
+              <option value="">--Select data type</option>
+            </select>
+          </div>
+
+          <!-- deo gde biraš da li unosiš SVE/TAKSON/ROD -->
+          <div class="dataToShow">
+            <select id="selected" onchange="showSelectedValue(this)">
+              <option value="">-- Select taxon --</option>
+            </select>
+
+            <!--! OVO MOZES DA IZBACIS KADA SREDIS SVE -->
+            <input type="text" id="selectTaxon" placeholder="Choose order or taxon" onchange="myFunction()"/>
+
+            <!-- deo gde ti piše šta si selektovao -->
+            <div class="selectedText">
+              <p id="msg">Taxon:</p>
+              <p id="msg2">Order: <span id="selectedTaxon"></span></p>
+            </div>
+         
+            <!-- dugme za dodavanje SVE/TAKSON/RED -->
+            <div class="grp_allData">
+              <button type="button" class="button btn-secondary" id="btnAllData">
+              ADD DATA
+              </button>
+            </div>
+          </div>
+          <!-- dodavanje pojedaničnih 10x10 UTM-ova -->
+          <div class="grp_add10x10">
+            <input
+              type="text"
+              class="add10x10"
+              name="add10x10"
+              id="add10x10"
+              placeholder="10x10 UTM"
+            />
+            <button type="button" class="btn10x10">ADD</button>
+          </div>
+
+          <!-- deo gde biraš koja boja je za koji tip podatka -->
+          <!--! u bazi moraš da imaš tip podataka: Terenski/Literaturni/Usmeni/Herbarijumski -->
+          <div class="variables">
+            <div class="coloF">
+              <label for="colorF">Field</label>
+              <input id="colorF" type="color" name="colorF" value="#ff0000" />
+            </div>
+            <div class="coloL">
+              <label for="colorL">Lit/Hrb</label>
+              <input id="colorL" type="color" name="colorL" value="#20926C" />
+            </div>
+            <div class="coloO">
+              <label for="colorO">Oral</label>
+              <input id="colorO" type="color" name="colorO" value="#2f2f2f" />
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- FOOTER -->
