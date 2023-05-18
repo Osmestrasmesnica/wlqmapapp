@@ -117,18 +117,27 @@
             </select>
 
             <!--! OVO MOZES DA IZBACIS KADA SREDIS SVE -->
-            <input type="text" id="selectTaxon" placeholder="Choose order or taxon" onchange="myFunction()"/>
+            <input
+              type="text"
+              id="selectTaxon"
+              placeholder="Choose order or taxon"
+              onchange="myFunction()"
+            />
 
             <!-- deo gde ti piše šta si selektovao -->
             <div class="selectedText">
               <p id="msg">Taxon:</p>
               <p id="msg2">Order: <span id="selectedTaxon"></span></p>
             </div>
-         
+
             <!-- dugme za dodavanje SVE/TAKSON/RED -->
             <div class="grp_allData">
-              <button type="button" class="button btn-secondary" id="btnAllData">
-              ADD DATA
+              <button
+                type="button"
+                class="button btn-secondary"
+                id="btnAllData"
+              >
+                ADD DATA
               </button>
             </div>
           </div>
@@ -224,12 +233,8 @@
                   </div>
                   <div class="wrapper-attachment">
                     <label for="attachment">ATTACHMENT</label>
-                    <input
-                    type="file"
-                      name="attachment"
-                      id="attachment"
-                      />
-                      <!--! accept="*" multiple webkitdirectory  OVO DODAJES AKO ZELIS DA MOZES VISE STVARI DA DODAJES-->
+                    <input type="file" name="attachment" id="attachment" multiple accept="*"/>
+                    <!--! accept="*" multiple webkitdirectory  OVO DODAJES AKO ZELIS DA MOZES VISE STVARI DA DODAJES-->
                   </div>
                 </div>
                 <label for="message">FORM LABEL</label>
