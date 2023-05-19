@@ -36,9 +36,9 @@
     <!-- EmailJS  -->
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">
-     (function(){
-      emailjs.init("MptWBhv7w3IDTVdsp");
-   })();
+      (function () {
+        emailjs.init("MptWBhv7w3IDTVdsp");
+      })();
     </script>
   </head>
   <body>
@@ -81,8 +81,45 @@
                   <li><a href="#" id="tiff">as TIFF</a></li>
                 </ul>
               </li>
-              <li><a href="#" id="contactLink2" class="contact-link">Contact</a></li>
-              <li><a href="#">About App</a></li>
+              <li>
+                <a href="#" id="contactLink2" class="contact-link">Contact</a>
+              </li>
+              <li><a href="#" onclick="openOverlay('aboutUs')">About</a></li>
+              <!-- deo koji je sakriven a tek se otvara kada kliknes na About, ovde dodajes kada dodajes tekst sve -->
+              <div class="container">
+                <div class="about-us" id="aboutUs" style="display: none">
+                  <h3>About WLQ Map</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+                    fringilla justo id tortor sagittis dignissim. Pellentesque a
+                    congue nisi. Sed vehicula mi a nulla auctor, sed laoreet urna
+                    ultricies. Sed consectetur, urna sed pulvinar pulvinar, enim
+                    tellus rhoncus ligula, et rutrum nisi neque et mi.
+                  </p>
+                  <p>
+                    Phasellus pellentesque elit in dolor varius, vel scelerisque
+                    odio sollicitudin. Proin elementum ligula ut eros fringilla
+                    fringilla. Etiam fringilla risus eu quam luctus, et congue
+                    neque bibendum. Aenean pellentesque arcu dui, ac ullamcorper
+                    arcu auctor sed. Morbi maximus auctor lectus, sed commodo
+                    nulla molestie sed. Nullam ut urna quis neque eleifend
+                    dapibus. Fusce non libero libero. Sed at luctus purus. Ut
+                    sodales massa eget dolor lobortis placerat. Fusce pellentesque
+                    nisi felis, eu sagittis ligula pellentesque in.
+                  </p>
+                </div>
+              
+                <!-- ... -->
+              
+                <div class="overlay" id="overlay" style="display: none">
+                  <div class="overlay-content">
+                    <div class="dugmeZatvori" onclick="closeOverlay()">×</div>
+                    <div class="about-us-content" id="aboutUsContent">
+                      <!-- About Us content will be dynamically inserted here -->
+                    </div>
+                  </div>
+                </div>
+              </div>
             </ul>
           </div>
         </div>
@@ -239,10 +276,10 @@
                     />
                   </div>
                 </div>
-                <label for="message">FORM LABEL</label>
+                <label for="message">MESSAGE</label>
                 <textarea
                   id="message"
-                  placeholder="Enter your message"
+                  placeholder="Enter your message..."
                 ></textarea>
                 <div class="button-form-container">
                   <button type="submit">Send</button>
@@ -299,6 +336,8 @@
         </div>
       </footer>
     </div>
+    <script src="./js/sendEmail.js"></script>
+    <script src="./js/about.js"></script>
     <!-- <script src="../JS/allData.js"></script> -->
     <!-- <script src="../JS/btnForExport.js"></script> -->
     <!-- <script src="../JS/dropdownlist.js"></script> -->
@@ -308,7 +347,6 @@
     <!-- <script src="../JS/listOfTaxons.js"></script> -->
     <!-- <script src="../JS/proba2.js"></script> -->
     <!-- <script src="../JS/selectTaxon.js"></script> -->
-    <script src="../JS/sendEmail.js"></script>
     <!-- <script src="../JS/singleUTM.js"></script> -->
     <!-- <script src="../JS/variables.js"></script> -->
   </body>
