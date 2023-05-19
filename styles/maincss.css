@@ -272,7 +272,7 @@ nav {
 
 nav .logo {
   font-weight: 700;
-  letter-spacing: 0.5rem;
+  letter-spacing: 1;
 }
 
 nav .logo:hover {
@@ -1165,4 +1165,10 @@ input[type="color"]::-moz-color-swatch {
   font-size: 1rem;
   line-height: 1.5;
   margin-bottom: 0.75rem;
+}
+
+.about-us-content p {
+  padding: 1rem;
+  margin: 0.75rem;
+  text-align:justify;
 }

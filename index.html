@@ -46,7 +46,7 @@
       <!-- NAVIGATION BAR-->
       <nav>
         <div class="nav-wrapper">
-          <a href="#" class="logo">WLQ</a>
+          <a href="#" class="logo">WLQ MAP APP</a>
           <input type="checkbox" name="" id="toggle" />
           <label for="toggle"><i class="material-icons">menu</i></label>
           <div class="menu">
@@ -84,33 +84,44 @@
               <li>
                 <a href="#" id="contactLink2" class="contact-link">Contact</a>
               </li>
-              <li><a href="#" onclick="openOverlay('aboutUs')">About</a></li>
+              <li><a href="#" onclick="openOverlay('aboutUs')">About WMA</a></li>
               <!-- deo koji je sakriven a tek se otvara kada kliknes na About, ovde dodajes kada dodajes tekst sve -->
               <div class="container">
                 <div class="about-us" id="aboutUs" style="display: none">
-                  <h3>About WLQ Map</h3>
+                  <h3>WLQ MAP APP</h3>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                    fringilla justo id tortor sagittis dignissim. Pellentesque a
-                    congue nisi. Sed vehicula mi a nulla auctor, sed laoreet urna
-                    ultricies. Sed consectetur, urna sed pulvinar pulvinar, enim
-                    tellus rhoncus ligula, et rutrum nisi neque et mi.
+                    The WLQ Map app is an innovative mapping application
+                    designed to help you visualize data. With its advanced
+                    filtering capabilities, the app seamlessly enables access to
+                    and visualization of data from a database, presenting it in
+                    UTM 10x10 and 50x50 grids.
                   </p>
                   <p>
-                    Phasellus pellentesque elit in dolor varius, vel scelerisque
-                    odio sollicitudin. Proin elementum ligula ut eros fringilla
-                    fringilla. Etiam fringilla risus eu quam luctus, et congue
-                    neque bibendum. Aenean pellentesque arcu dui, ac ullamcorper
-                    arcu auctor sed. Morbi maximus auctor lectus, sed commodo
-                    nulla molestie sed. Nullam ut urna quis neque eleifend
-                    dapibus. Fusce non libero libero. Sed at luctus purus. Ut
-                    sodales massa eget dolor lobortis placerat. Fusce pellentesque
-                    nisi felis, eu sagittis ligula pellentesque in.
+                    In the realm of botany, the WLQ Map app takes it a step
+                    further by offering specialized features for the analysis
+                    and interpretation of plant distribution. Whether you're
+                    working with field observations, oral accounts, or
+                    literature sources, the app provides customized
+                    visualizations tailored to the specific type of data you're
+                    working with. With ease, you can examine distribution
+                    patterns, explore species diversity, and gain valuable
+                    insights into the areas where different species thrive. By
+                    providing graphical representations of taxa data, the app
+                    empowers researchers, enthusiasts, and nature lovers to
+                    deepen their understanding and appreciation of the rich
+                    diversity of plant life.
+                  </p>
+                  <p>
+                    Discover the diveristy and distribution of taxa in a whole
+                    new way with the WLQ Map app. Explore, analyze, and
+                    visualize data with ease, unlocking the hidden secrets of
+                    our natural environment and unraveling the wonders that lie
+                    within.
                   </p>
                 </div>
-              
+
                 <!-- ... -->
-              
+
                 <div class="overlay" id="overlay" style="display: none">
                   <div class="overlay-content">
                     <div class="dugmeZatvori" onclick="closeOverlay()">×</div>
@@ -125,48 +136,36 @@
         </div>
       </nav>
 
-      <!-- MAP WITH DATA -->
+      <!-- MAIN SECTION -->
       <div class="hero-wrapper">
         <img class="image" src="./assets/srbija.jpg" alt="Map of Serbia" />
         <div class="products" id="products"></div>
 
         <!-- WRAPPER SA SVIM OPCIJAMA -->
         <div class="variables-wrapper">
+
           <!-- deo gde biraš u kom redu se nalaze podaci o UTM kvadratima i na osnovu toga filtriraš -->
           <div class="utmRow">
-            <select
-              id="headerSelect"
-              onchange="showProbaData(); populateSelect()"
-            >
+            <select id="headerSelect" onchange="showProbaData(); populateSelect()">
               <option value="">-- Row with 10x10 UTM --</option>
             </select>
           </div>
 
           <!-- opadajuci meni gde biras sta ces da pretrazujes SVE/ROD/TAKSON -->
           <div class="dataType">
-            <select
-              name="selectdataType"
-              id="selectdataType"
-              placceholder="Choose type of data"
-              onchange=""
-            >
-              <option value="">--Select data type</option>
+            <select name="selectdataType" id="selectdataType" placceholder="Choose type of data" onchange="">
+              <option value="">-- Select data type --</option>
             </select>
           </div>
 
-          <!-- deo gde biraš da li unosiš SVE/TAKSON/ROD -->
+          <!-- deo gde biraš koje sve unosis SVE/TAKSON/ROD -->
           <div class="dataToShow">
             <select id="selected" onchange="showSelectedValue(this)">
-              <option value="">-- Select taxon --</option>
+              <option value="">-- Select order/taxa --</option>
             </select>
 
             <!--! OVO MOZES DA IZBACIS KADA SREDIS SVE -->
-            <input
-              type="text"
-              id="selectTaxon"
-              placeholder="Choose order or taxon"
-              onchange="myFunction()"
-            />
+            <input type="text" id="selectTaxon" placeholder="Choose order or taxon" onchange="myFunction()"/>
 
             <!-- deo gde ti piše šta si selektovao -->
             <div class="selectedText">
@@ -176,24 +175,13 @@
 
             <!-- dugme za dodavanje SVE/TAKSON/RED -->
             <div class="grp_allData">
-              <button
-                type="button"
-                class="button btn-secondary"
-                id="btnAllData"
-              >
-                ADD DATA
-              </button>
+              <button type="button" class="button btn-secondary" id="btnAllData">ADD DATA</button>
             </div>
           </div>
+
           <!-- dodavanje pojedaničnih 10x10 UTM-ova -->
           <div class="grp_add10x10">
-            <input
-              type="text"
-              class="add10x10"
-              name="add10x10"
-              id="add10x10"
-              placeholder="10x10 UTM"
-            />
+            <input type="text" class="add10x10" name="add10x10" id="add10x10" placeholder="10x10 UTM"/>
             <button type="button" class="btn10x10">ADD</button>
           </div>
 
@@ -215,7 +203,7 @@
           </div>
         </div>
       </div>
-
+      
       <!-- FOOTER -->
       <footer class="footer">
         <div class="footer-wrapper">
