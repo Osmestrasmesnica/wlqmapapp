@@ -33,6 +33,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.6/xlsx.core.min.js"></script>
     <!-- D3.js library version 6 for data visualization and manipulation -->
     <script src="https://d3js.org/d3.v6.min.js"></script>
+    <!-- EmailJS  -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+     (function(){
+      emailjs.init("MptWBhv7w3IDTVdsp");
+   })();
+    </script>
   </head>
   <body>
     <div class="all-wrapper">
@@ -230,11 +237,6 @@
                       id="subject"
                       placeholder="Subject title"
                     />
-                  </div>
-                  <div class="wrapper-attachment">
-                    <label for="attachment">ATTACHMENT</label>
-                    <input type="file" name="attachment" id="attachment" multiple accept="*"/>
-                    <!--! accept="*" multiple webkitdirectory  OVO DODAJES AKO ZELIS DA MOZES VISE STVARI DA DODAJES-->
                   </div>
                 </div>
                 <label for="message">FORM LABEL</label>

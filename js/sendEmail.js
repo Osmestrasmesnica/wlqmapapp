@@ -23,7 +23,6 @@ var nameInput = document.getElementById("name");
 var emailInput = document.getElementById("email");
 var subjectInput = document.getElementById("subject");
 var messageInput = document.getElementById("message");
-var fileInput = document.getElementById("attachment");
 
 // Add a submit event listener to the form
 form.addEventListener("submit", function(event) {
@@ -38,21 +37,19 @@ form.addEventListener("submit", function(event) {
   formData.append("subject", subjectInput.value);
   formData.append("message", messageInput.value);
 
-  // Add all selected files to the FormData object
-  var files = fileInput.files;
-  for (var i = 0; i < files.length; i++) {
-    formData.append("attachment", files[i]);
-  }
-
-  // Use the EmailJS library to send the email with attachments
-  emailjs.sendForm("your_service_id", "your_template_id", formData)
+  // Use the EmailJS library to send the email
+  emailjs.send("service_gsiaajn", "template_zua027e", {
+    name: formData.get("name"),
+    email: formData.get("email"),
+    subject: formData.get("subject"),
+    message: formData.get("message")
+  })
     .then(function(response) {
       alert("Email sent successfully!");
       form.reset(); // Reset the form
       formContainer.style.display = "none"; // Hide the form container
-    }, function(error) {
+    })
+    .catch(function(error) {
       alert("An error occurred while sending the email: " + error.text);
     });
 });
-
-// Make sure to include the EmailJS library in your HTML file before the JavaScript code, and replace the service_abcdefg and template_123456 values in the emailjs.send() function with your own service ID and template ID, respectively.
