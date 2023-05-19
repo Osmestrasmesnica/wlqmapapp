@@ -1,12 +1,14 @@
 // Get the "Contact Us" link, the form container, and the close button
-var contactLink = document.getElementById("contact").querySelector("a");
 var formContainer = document.querySelector(".form-container");
 var closeBtn = document.querySelector(".close-btn");
+var contacts = document.querySelectorAll(".contact-link");
 
-// Add a click event listener to the "Contact Us" link
-contactLink.addEventListener("click", function(event) {
-  event.preventDefault(); // Prevent the link from opening a new page
-  formContainer.style.display = "flex"; // Show the form container
+// Show the form container when any "Contact Us" link is clicked
+contacts.forEach(function(contact) {
+  contact.addEventListener("click", function(event) {
+    event.preventDefault();
+    formContainer.style.display = "flex";
+  });
 });
 
 // Add a click event listener to the close button
