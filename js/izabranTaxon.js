@@ -49,8 +49,9 @@ importedData.then(() => {
         const selectedSpeciesData = mapData.filter((item) =>
             item.vrsta.includes(species) ? item : undefined
         );
-        console.log(species);
-        console.log(selectedSpeciesData.length);
+        // console.log(species);
+        // console.log(selectedSpeciesData.length);
+        // console.log(`for the selected ${species} there are ${selectedSpeciesData.length} data that you have collected`);
         for (let i = 0; i < selectedSpeciesData.length; i++) {
             UTMOdabraneVrste.push(selectedSpeciesData[i].utm10x10);
             TipPodatkaOdabraneVrste.push(selectedSpeciesData[i].podatak);
@@ -87,10 +88,10 @@ importedData.then(() => {
                                 ? (qwerty[i] = "T")
                                 : L[i].length > 0
                                     ? (qwerty[i] = "L")
-                                    : T[i].length > 0
+                                    : H[i].length >= 0
                                         ? (qwerty[i] = "H")
                                         : console.log("nema bato nista");
-            console.log(qwerty[i]);
+            // console.log(qwerty[i]);
         }
 
         const countQwerty = (qwerty) => {

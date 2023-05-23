@@ -13,8 +13,6 @@ const waitForWlqData = new Promise(resolve => {
   
 waitForWlqData.then(() => {
     // your code here
- 
-
         const filtered = WlqData.filter(podatak => (
         podatak.UTM_10x10 !== undefined && 
         podatak.UTM_10x10 !== "Neprecizan podatak"  
@@ -91,7 +89,7 @@ waitForWlqData.then(() => {
                 : L[i].length > 0 && H[i].length > 0 ? qwerty[i] = ("LiH")
                 : T[i].length > 0 ? qwerty[i] = ("T") 
                 : L[i].length > 0 ? qwerty[i] = ("L")
-                : T[i].length > 0 ? qwerty[i] = ("H")
+                : H[i].length >= 0 ? qwerty[i] = ("H")
                 : console.log("nema bato nista");
                 console.log(qwerty[i]);
 

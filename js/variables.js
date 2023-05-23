@@ -12,4 +12,3 @@ const liveUpdate = (event) => {
 inputElements.forEach((input) => {
     input.addEventListener('input', liveUpdate);
 });
-//todo eventualno usmenog podatka

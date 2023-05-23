@@ -1,6 +1,6 @@
 function exportMapImage(format, fileName) {
   // Get the map element
-  var mapElement = document.querySelector('.map-container');
+  var mapElement = document.querySelector('.img-wrapper');
 
   // Use dom-to-image to capture the map as an image in the specified format
   domtoimage.toBlob(mapElement, {
@@ -35,7 +35,7 @@ document.getElementById('tiff').addEventListener('click', function() {
 
 document.getElementById('svg').addEventListener('click', function() {
   // Get the map element
-  var mapElement = document.querySelector('.map-container');
+  var mapElement = document.querySelector('.img-wrapper');
 
   // Use dom-to-image to capture the map as an SVG
   domtoimage.toSvg(mapElement)

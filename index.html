@@ -46,7 +46,7 @@
       <!-- NAVIGATION BAR-->
       <nav>
         <div class="nav-wrapper">
-          <a href="#" class="logo">WLQ MAP APP</a>
+          <a href="#" class="logo">WLQ Map App</a>
           <input type="checkbox" name="" id="toggle" />
           <label for="toggle"><i class="material-icons">menu</i></label>
           <div class="menu">
@@ -56,17 +56,17 @@
                 <a href="#">Import</a>
                 <ul>
                   <li>
-                    <a
-                      href="#"
-                      onclick="importJSON().then(data => {
-                  WlqData = data;
-                  filtrirani = data.filter(item => item.UTM_10x10 !== undefined && item.UTM_10x10 !== `Neprecizan podatak`);
-                  console.log(WlqData);
-                  console.log(filtrirani);
-                  showUniqueData();
-                });"
-                      >JSON</a
-                    >
+                    <!--! podesavas kako se zove kolona gde je UTM, tj kako se ona zove -->
+                    <!--! ovde podesavas filter, tj ne ukljucujes nista sto je nedefinisano i sto je neprecizan podatak -->
+                    <!--! mozda je isto dobro da ovde podesis da uzimas samo podatke koje izgledaju kao UTM tj 2 slova 2 broja  -->
+                    <a href="#"
+                    onclick="importJSON().then(data => {
+                      WlqData = data;
+                      filtrirani = data.filter(item => item.UTM_10x10 !== undefined && item.UTM_10x10 !== `Neprecizan podatak`);
+                      console.log(WlqData);
+                      console.log(filtrirani);
+                      showUniqueData();
+                    });">JSON</a>
                   </li>
                   <li><a href="#">EXCEL</a></li>
                   <li><a href="#">CSV</a></li>
@@ -138,15 +138,17 @@
 
       <!-- MAIN SECTION -->
       <div class="hero-wrapper">
-        <img class="image" src="./assets/srbija.jpg" alt="Map of Serbia" />
-        <div class="products" id="products"></div>
-
+        <div class="img-wrapper">
+          <img class="image" src="./assets/srbija.jpg" alt="Map of Serbia"/>
+          <div class="products" id="products"></div>
+          <div class="coordinates" id="coordinates"></div>
+        </div>  
         <!-- WRAPPER SA SVIM OPCIJAMA -->
         <div class="variables-wrapper">
 
           <!-- deo gde biraš u kom redu se nalaze podaci o UTM kvadratima i na osnovu toga filtriraš -->
           <div class="utmRow">
-            <select id="headerSelect" onchange="showProbaData(); populateSelect()">
+            <select id="headerSelect" class="custom-select" onchange="showProbaData(); populateSelect()">
               <option value="">-- Row with 10x10 UTM --</option>
             </select>
           </div>
@@ -326,16 +328,16 @@
     </div>
     <script src="./js/sendEmail.js"></script>
     <script src="./js/about.js"></script>
-    <!-- <script src="../JS/allData.js"></script> -->
-    <!-- <script src="../JS/btnForExport.js"></script> -->
-    <!-- <script src="../JS/dropdownlist.js"></script> -->
-    <!-- <script src="../JS/excelToJson.js"></script> -->
-    <!-- <script src="../JS/importJson.js"></script> -->
-    <!-- <script src="../JS/izabranTaxon.js"></script> -->
-    <!-- <script src="../JS/listOfTaxons.js"></script> -->
+    <script src="./js/excelToJson.js"></script>
+    <script src="./js/importJson.js"></script>
+    <script src="./js/variables.js"></script>
+    <script src="./js/btnForExport.js"></script>
+    <script src="./js/listOfTaxons.js"></script>
+    <script src="./js/izabranTaxon.js"></script>
+    <script src="./js/singleUTM.js"></script>
+    <script src="./js/allData.js"></script>
     <!-- <script src="../JS/proba2.js"></script> -->
-    <!-- <script src="../JS/selectTaxon.js"></script> -->
-    <!-- <script src="../JS/singleUTM.js"></script> -->
-    <!-- <script src="../JS/variables.js"></script> -->
+    <!-- <script src="./js/selectTaxon.js"></script> -->
+    <!-- <script src="../JS/dropdownlist.js"></script> -->
   </body>
 </html>

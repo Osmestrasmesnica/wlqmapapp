@@ -36,7 +36,7 @@ console.log(WlqData);
 //TODO obratiti pažnju koje sve kolone sadrži (primer je i.Redni_broj, i.Pun_naziv), proveriti iz originalne Excel tabele i eventualno dodaješ po potrebi šta želiš ovde
   var lepPrikaz = podaciUTM.map( i => {
     return {
-      vrsta: i.PunNazivTaksonaTaksona,
+      vrsta: i.PunNazivTaksona,
       utm10x10: i.UTM_10x10,
       podatak: i.Tip_podatka
     } 
@@ -116,7 +116,7 @@ for (let i=0; i < kockice.length; i++) {
   : L[i].length > 0 && H[i].length > 0 ? tipReference[i] = ("LiH")
   : T[i].length > 0 ? tipReference[i] = ("T") 
   : L[i].length > 0 ? tipReference[i] = ("L")
-  : T[i].length > 0 ? tipReference[i] = ("H")
+  : H[i].length >= 0 ? tipReference[i] = ("H")
   : console.log("nema bato nista");
   
   //*dugme kada pritisneš prepozna koji UTM treba da ubaci i kako menja tipReference u T/L/H/TiL/TiH/LiH/TiLiH
@@ -131,19 +131,19 @@ for (let i=0; i < kockice.length; i++) {
     
     //*za prvo slovo
     utmPodatak ==='' ? alert('Moraš da ubaciš ispravnu vrednost 10x10 UTM kvadrata!')
-    : prvoSlovo.includes('C') ? document.getElementById(`product${i}`).style.left = `calc(calc(0${prviBroj} * 2.440%) + calc(8.4% + 49.5%) + calc(-20 * 2.440%))`
-    : prvoSlovo.includes('D') ? document.getElementById(`product${i}`).style.left = `calc(calc(1${prviBroj} * 2.440%) + calc(8.4% + 49.5%) + calc(-20 * 2.440%))`
-    : prvoSlovo.includes('E') ? document.getElementById(`product${i}`).style.left = `calc(calc(2${prviBroj} * 2.440%) + calc(8.4% + 49.5%) + calc(-20 * 2.440%))`
-    : prvoSlovo.includes('F') ? document.getElementById(`product${i}`).style.left = `calc(calc(3${prviBroj} * 2.440%) + calc(8.4% + 49.5%) + calc(-20 * 2.440%))`
+    : prvoSlovo.includes('C') ? document.getElementById(`product${i}`).style.left = `calc(calc(0${prviBroj} * 2.4333%) + calc(57.9%) + calc(-20 * 2.43%))`
+    : prvoSlovo.includes('D') ? document.getElementById(`product${i}`).style.left = `calc(calc(1${prviBroj} * 2.4333%) + calc(57.9%) + calc(-20 * 2.43%))`
+    : prvoSlovo.includes('E') ? document.getElementById(`product${i}`).style.left = `calc(calc(2${prviBroj} * 2.4333%) + calc(57.9%) + calc(-20 * 2.43%))`
+    : prvoSlovo.includes('F') ? document.getElementById(`product${i}`).style.left = `calc(calc(3${prviBroj} * 2.4333%) + calc(57.9%) + calc(-20 * 2.43%))`
     : console.log('nista od navedenog');
 
     //*za drugo slovo                                                             
-    drugoSlovo.includes('M') ? document.getElementById(`product${i}`).style.top = `calc(calc(0${drugiBroj} * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.918%))`
-    : drugoSlovo.includes('N') ? document.getElementById(`product${i}`).style.top = `calc(calc(1${drugiBroj} * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.918%))`
-    : drugoSlovo.includes('P') ? document.getElementById(`product${i}`).style.top = `calc(calc(2${drugiBroj} * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.918%))`
-    : drugoSlovo.includes('Q') ? document.getElementById(`product${i}`).style.top = `calc(calc(3${drugiBroj} * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.918%))`
-    : drugoSlovo.includes('R') ? document.getElementById(`product${i}`).style.top = `calc(calc(4${drugiBroj} * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.918%))`
-    : drugoSlovo.includes('S') ? document.getElementById(`product${i}`).style.top = `calc(calc(5${drugiBroj} * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.918%))`
+    drugoSlovo.includes('M') ? document.getElementById(`product${i}`).style.top = `calc(calc(0${drugiBroj} * -1.9167%) + calc(81.3%) + calc(10 * 1.9167%))`
+    : drugoSlovo.includes('N') ? document.getElementById(`product${i}`).style.top = `calc(calc(1${drugiBroj} * -1.9167%) + calc(81.3%) + calc(10 * 1.9167%))`
+    : drugoSlovo.includes('P') ? document.getElementById(`product${i}`).style.top = `calc(calc(2${drugiBroj} * -1.9167%) + calc(81.3%) + calc(10 * 1.9167%))`
+    : drugoSlovo.includes('Q') ? document.getElementById(`product${i}`).style.top = `calc(calc(3${drugiBroj} * -1.9167%) + calc(81.3%) + calc(10 * 1.9167%))`
+    : drugoSlovo.includes('R') ? document.getElementById(`product${i}`).style.top = `calc(calc(4${drugiBroj} * -1.9167%) + calc(81.3%) + calc(10 * 1.9167%))`
+    : drugoSlovo.includes('S') ? document.getElementById(`product${i}`).style.top = `calc(calc(5${drugiBroj} * -1.9167%) + calc(81.3%) + calc(10 * 1.9167%))`
     : console.log('nista od navedenog nema');
 
     //*menjaš class name da ti na krati budu različito prikazani utm koji imaju više tipova podataka TiL/LiH/TiLiH/T/L/H/
