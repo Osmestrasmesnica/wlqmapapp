@@ -21,14 +21,14 @@ waitForWlqData.then(() => {
 
         // Function to map data to a new object structure
         const mapData = filtered.map(i => ({
-            vrsta: i.PunNazivTaksonaTaksona,
+            vrsta: i.PunNazivTaksona,
             utm10x10: i.UTM_10x10,
             podatak: i.Tip_podatka
         })); 
 
         // Function to get unique values from an array
         const getUniqueValues = mapData => Array.from(new Set(mapData));
-        const vrsteMapUTM = filtered.map(vrste => vrste.PunNazivTaksonaTaksona)
+        const vrsteMapUTM = filtered.map(vrste => vrste.PunNazivTaksona)
         console.log(getUniqueValues);
         console.log(vrsteMapUTM);
         
@@ -103,19 +103,19 @@ waitForWlqData.then(() => {
                 
                 //*za prvo slovo
                 proba10 ==='' ? alert('Moraš da ubaciš ispravnu vrednost 10x10 UTM kvadrata!')
-                : prvoSlovo1.includes('C') ? document.getElementById(`product${i}`).style.left = `calc(calc(0${prviBroj1} * 2.440%) + calc(8.4% + 49.5%) + calc(-20 * 2.440%))`
-                : prvoSlovo1.includes('D') ? document.getElementById(`product${i}`).style.left = `calc(calc(1${prviBroj1} * 2.440%) + calc(8.4% + 49.5%) + calc(-20 * 2.440%))`
-                : prvoSlovo1.includes('E') ? document.getElementById(`product${i}`).style.left = `calc(calc(2${prviBroj1} * 2.440%) + calc(8.4% + 49.5%) + calc(-20 * 2.440%))`
-                : prvoSlovo1.includes('F') ? document.getElementById(`product${i}`).style.left = `calc(calc(3${prviBroj1} * 2.440%) + calc(8.4% + 49.5%) + calc(-20 * 2.440%))`
+                : prvoSlovo1.includes('C') ? document.getElementById(`product${i}`).style.left = `calc(calc(0${prviBroj1} * 2.4333%) + calc(57.9%) + calc(-20 * 2.43%))`
+                : prvoSlovo1.includes('D') ? document.getElementById(`product${i}`).style.left = `calc(calc(1${prviBroj1} * 2.4333%) + calc(57.9%) + calc(-20 * 2.43%))`
+                : prvoSlovo1.includes('E') ? document.getElementById(`product${i}`).style.left = `calc(calc(2${prviBroj1} * 2.4333%) + calc(57.9%) + calc(-20 * 2.43%))`
+                : prvoSlovo1.includes('F') ? document.getElementById(`product${i}`).style.left = `calc(calc(3${prviBroj1} * 2.4333%) + calc(57.9%) + calc(-20 * 2.43%))`
                 : console.log('nista od navedenog');
             
                 //*za drugo slovo                                                             
-                drugoSlovo1.includes('M') ? document.getElementById(`product${i}`).style.top = `calc(calc(0${drugiBroj1} * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.918%))`
-                : drugoSlovo1.includes('N') ? document.getElementById(`product${i}`).style.top = `calc(calc(1${drugiBroj1} * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.918%))`
-                : drugoSlovo1.includes('P') ? document.getElementById(`product${i}`).style.top = `calc(calc(2${drugiBroj1} * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.918%))`
-                : drugoSlovo1.includes('Q') ? document.getElementById(`product${i}`).style.top = `calc(calc(3${drugiBroj1} * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.918%))`
-                : drugoSlovo1.includes('R') ? document.getElementById(`product${i}`).style.top = `calc(calc(4${drugiBroj1} * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.918%))`
-                : drugoSlovo1.includes('S') ? document.getElementById(`product${i}`).style.top = `calc(calc(5${drugiBroj1} * -1.918%) + calc(100% - 37.8%) + calc(-20 * -1.918%))`
+                drugoSlovo1.includes('M') ? document.getElementById(`product${i}`).style.top = `calc(calc(0${drugiBroj1} * -1.9167%) + calc(81.3%) + calc(10 * 1.9167%))`
+                : drugoSlovo1.includes('N') ? document.getElementById(`product${i}`).style.top = `calc(calc(1${drugiBroj1} * -1.9167%) + calc(81.3%) + calc(10 * 1.9167%))`
+                : drugoSlovo1.includes('P') ? document.getElementById(`product${i}`).style.top = `calc(calc(2${drugiBroj1} * -1.9167%) + calc(81.3%) + calc(10 * 1.9167%))`
+                : drugoSlovo1.includes('Q') ? document.getElementById(`product${i}`).style.top = `calc(calc(3${drugiBroj1} * -1.9167%) + calc(81.3%) + calc(10 * 1.9167%))`
+                : drugoSlovo1.includes('R') ? document.getElementById(`product${i}`).style.top = `calc(calc(4${drugiBroj1} * -1.9167%) + calc(81.3%) + calc(10 * 1.9167%))`
+                : drugoSlovo1.includes('S') ? document.getElementById(`product${i}`).style.top = `calc(calc(5${drugiBroj1} * -1.9167%) + calc(81.3%) + calc(10 * 1.9167%))`
                 : console.log('nista od navedenog nema');
 
                 document.getElementById(`product${i}`).className = qwerty[i]

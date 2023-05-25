@@ -33,6 +33,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.6/xlsx.core.min.js"></script>
     <!-- D3.js library version 6 for data visualization and manipulation -->
     <script src="https://d3js.org/d3.v6.min.js"></script>
+    <!-- imoporting EXCEL and CSV -->
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="https://unpkg.com/papaparse/papaparse.min.js"></script>
     <!-- EmailJS  -->
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">
@@ -51,7 +54,7 @@
           <label for="toggle"><i class="material-icons">menu</i></label>
           <div class="menu">
             <ul>
-              <li><a href="#" id="excel-button">Excel → JSON</a></li>
+              <li style="display: none;"><a href="#" id="excel-button">Excel → JSON</a></li>
               <li>
                 <a href="#">Import</a>
                 <ul>
@@ -68,8 +71,20 @@
                       showUniqueData();
                     });">JSON</a>
                   </li>
-                  <li><a href="#">EXCEL</a></li>
-                  <li><a href="#">CSV</a></li>
+                  <li><a href="#" onclick="importFile('application/vnd.ms-excel').then(data => {
+                    WlqData = data;
+                    filtrirani = data.filter(item => item.UTM_10x10 !== undefined && item.UTM_10x10 !== `Neprecizan podatak`);
+                    console.log(WlqData);
+                    console.log(filtrirani);
+                    showUniqueData();
+                  });">EXCEL</a></li>
+                  <li><a href="#" onclick="importFile('text/csv').then(data => {
+                    WlqData = data;
+                    filtrirani = data.filter(item => item.UTM_10x10 !== undefined && item.UTM_10x10 !== `Neprecizan podatak`);
+                    console.log(WlqData);
+                    console.log(filtrirani);
+                    showUniqueData();
+                  });">CSV</a></li>
                 </ul>
               </li>
               <li>
@@ -178,6 +193,7 @@
             <!-- dugme za dodavanje SVE/TAKSON/RED -->
             <div class="grp_allData">
               <button type="button" class="button btn-secondary" id="btnAllData">ADD DATA</button>
+              <button type="button" class="togetherTaxa btn-secondary" id=".togetherTaxa">ADD TAXA</button>
             </div>
           </div>
 
@@ -333,11 +349,10 @@
     <script src="./js/variables.js"></script>
     <script src="./js/btnForExport.js"></script>
     <script src="./js/listOfTaxons.js"></script>
-    <script src="./js/izabranTaxon.js"></script>
     <script src="./js/singleUTM.js"></script>
     <script src="./js/allData.js"></script>
-    <!-- <script src="../JS/proba2.js"></script> -->
+    <script src="./js/proba2.js"></script>
+    <!-- <script src="./js/izabranTaxon.js"></script> -->
     <!-- <script src="./js/selectTaxon.js"></script> -->
-    <!-- <script src="../JS/dropdownlist.js"></script> -->
   </body>
 </html>
