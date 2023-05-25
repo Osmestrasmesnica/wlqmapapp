@@ -66,23 +66,23 @@
                     onclick="importJSON().then(data => {
                       WlqData = data;
                       filtrirani = data.filter(item => item.UTM_10x10 !== undefined && item.UTM_10x10 !== `Neprecizan podatak`);
-                      console.log(WlqData);
-                      console.log(filtrirani);
+                      // console.log(WlqData);
+                      // console.log(filtrirani);
                       showUniqueData();
                     });">JSON</a>
                   </li>
                   <li><a href="#" onclick="importFile('application/vnd.ms-excel').then(data => {
                     WlqData = data;
                     filtrirani = data.filter(item => item.UTM_10x10 !== undefined && item.UTM_10x10 !== `Neprecizan podatak`);
-                    console.log(WlqData);
-                    console.log(filtrirani);
+                    // console.log(WlqData);
+                    // console.log(filtrirani);
                     showUniqueData();
                   });">EXCEL</a></li>
                   <li><a href="#" onclick="importFile('text/csv').then(data => {
                     WlqData = data;
                     filtrirani = data.filter(item => item.UTM_10x10 !== undefined && item.UTM_10x10 !== `Neprecizan podatak`);
-                    console.log(WlqData);
-                    console.log(filtrirani);
+                    // console.log(WlqData);
+                    // console.log(filtrirani);
                     showUniqueData();
                   });">CSV</a></li>
                 </ul>
