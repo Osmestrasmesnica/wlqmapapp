@@ -180,16 +180,16 @@
           <!-- deo gde biraš koje sve unosis SVE/TAKSON/ROD -->
           <div class="dataToShow">
             <select id="selected" onchange="showSelectedValue(this)">
-              <option value="">-- Select order/taxa --</option>
+              <option value="">-- Select taxonomic group --</option>
             </select>
 
             <!--! OVO MOZES DA IZBACIS KADA SREDIS SVE -->
-            <input type="text" id="selectTaxon" placeholder="Choose order or taxon" onchange="myFunction()"/>
+            <input type="text" id="selectTaxon" placeholder="Choose genus or species" onchange="myFunction()"/>
 
             <!-- deo gde ti piše šta si selektovao -->
             <div class="selectedText">
-              <p id="msg">Taxon:</p>
-              <p id="msg2">Order: <span id="selectedTaxon"></span></p>
+              <p id="msg">Species:</p>
+              <p id="msg2">Genus: <span id="selectedTaxon"></span></p>
             </div>
 
             <!-- dugme za dodavanje SVE/TAKSON/RED -->
@@ -201,8 +201,13 @@
 
           <!-- dodavanje pojedaničnih 10x10 UTM-ova -->
           <div class="grp_add10x10">
+            <div class="sectionSingle10x10">
             <input type="text" class="add10x10" name="add10x10" id="add10x10" placeholder="10x10 UTM"/>
             <button type="button" class="btn10x10">ADD</button>
+            </div>
+            <div class="buttons-for-delete">
+              <!-- deo gde ce doci dugmici za uklanjanje poslednje i za uklanjanja svih elementa u coordinates -->
+            </div>
           </div>
 
           <!-- deo gde biraš koja boja je za koji tip podatka -->

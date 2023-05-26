@@ -790,6 +790,8 @@ input[type="color"]::-moz-color-swatch {
 /** DODAVANJE POJEDINAČNIH 10x10 */
 .grp_add10x10 {    
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
   margin: 1rem 0.25rem;
   align-items: center;
   justify-content: center;
@@ -1222,4 +1224,9 @@ input[type="color"]::-moz-color-swatch {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.sectionSingle10x10{
+  display: flex;
+  width: 100%;
 }
