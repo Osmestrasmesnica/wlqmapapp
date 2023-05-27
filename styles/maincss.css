@@ -1230,3 +1230,35 @@ input[type="color"]::-moz-color-swatch {
   display: flex;
   width: 100%;
 }
+
+.options-container {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 250px;
+  height: 30px;
+  background-color: var(--clr1);
+  border: 3px solid var(--clr3);
+  border-radius: 10px;
+  padding: 0.5rem;
+  font-size: 1.125rem;
+}
+
+.option {
+  /* position: absolute; */
+  padding: 0.125rem;
+  cursor: pointer;
+  margin: 0.25rem;
+}
+.option:hover {
+  opacity: 0.8;
+  color: var(--clr3);
+}
+
+@media screen and (max-width: 768px) {
+ .option{
+  font-size: 0.5rem;
+ }
+}

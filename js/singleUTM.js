@@ -9,25 +9,25 @@ let lastAddedCoordinates;
 btn10x10.addEventListener('click', event => {
   clickCount++;
 
-  if (clickCount === 2) {
+  if (clickCount === 1) {
     // Kreiraj dugme za brisanje
     const deleteButton = document.createElement('button');
     deleteButton.id = 'delete-coordinates';
-    deleteButton.textContent = 'Delete';
+    deleteButton.textContent = 'Delete all ';
 
     // Kreirati dugme za brisanje poslednjeg diva
     const deleteLastButton = document.createElement('button');
     deleteLastButton.id = 'delete-last-button';
     deleteLastButton.textContent = 'Delete last';
 
-    // Dodaj event listener za brisanje
+    // Dodaj event lisener za brisanje
     deleteButton.addEventListener('click', () => {
       coordinatesContainer.innerHTML = '';
       clickCount = 0;
       placeForDeleteBtn.innerHTML = '';
     });
 
-    // Dodaj event listnere za brisanje poslednjeg dodatog elementa
+    // Dodaj event lisenere za brisanje poslednjeg dodatog elementa
     deleteLastButton.addEventListener('click', () => {
       if (clickCount > 0) {
         const lastCoordinates = document.getElementById(`coordinates-${clickCount}`);
@@ -35,7 +35,7 @@ btn10x10.addEventListener('click', event => {
           coordinatesContainer.removeChild(lastCoordinates);
           clickCount--;
           lastAddedCoordinates = document.getElementById(`coordinates-${clickCount}`);
-          if (clickCount = 0) {
+          if (clickCount === 0) {
             placeForDeleteBtn.innerHTML = '';
           }
         }
@@ -69,6 +69,90 @@ btn10x10.addEventListener('click', event => {
   coordinatesContainer.appendChild(newCoordinates);
 
   lastAddedCoordinates = newCoordinates;
+
+  // Add click event listener to the newCoordinates div
+  newCoordinates.addEventListener('click', event => {
+    // Close any open tooltips
+    const openTooltip = document.querySelector('.options-container.show');
+    if (openTooltip) {
+      openTooltip.remove('');
+    }
+
+    // Create the options container element
+    const optionsContainer = document.createElement('div');
+    optionsContainer.className = 'options-container';
+
+    // Create the options
+    const options = ['T', 'L', 'H', 'sumnjiv', 'netacanX'];
+
+    // Create and append the option elements
+    options.forEach(option => {
+      const optionElement = document.createElement('div');
+      optionElement.textContent = option;
+      optionElement.className = 'option';
+
+      // Add click event listener to handle the option selection
+      optionElement.addEventListener('click', () => {
+        newCoordinates.className = option;
+        optionsContainer.remove(); // Remove the options container once an option is selected
+      });
+
+      optionsContainer.appendChild(optionElement);
+    });
+
+    // Show the options container
+    optionsContainer.classList.add('show');
+    
+    // Append the options container to the body
+    document.body.appendChild(optionsContainer);
+    
+    // Adjust the size of the tooltip for smaller screens
+    if (window.innerWidth <= 768) {
+      optionsContainer.style.width = '150px';
+    }
+
+    // Position the options container above or below the clicked element
+    const coordinatesRect = newCoordinates.getBoundingClientRect();
+    const tooltipHeight = optionsContainer.offsetHeight;
+    const tooltipWidth = optionsContainer.offsetWidth;
+    const imgWrapperRect = newCoordinates.closest('.img-wrapper').getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    const viewportWidth = window.innerWidth;
+    const scrollPosition = window.pageYOffset || window.scrollY;;
+
+    // Calculate the maximum top position of the tooltip
+    const maxTopPosition = imgWrapperRect.top + imgWrapperRect.height - tooltipHeight;
+    console.log(imgWrapperRect.top, imgWrapperRect.height, tooltipHeight, maxTopPosition );
+
+    // Calculate the maximum left position of the tooltip
+    const maxLeftPosition = imgWrapperRect.left + imgWrapperRect.width - tooltipWidth;
+    console.log(imgWrapperRect.left, imgWrapperRect.width, tooltipWidth, maxLeftPosition );
+
+    // Calculate the desired top and left positions
+    let tooltipTop = coordinatesRect.top - tooltipHeight + scrollPosition; // Account for vertical scroll position
+    
+    let tooltipLeft = coordinatesRect.left;
+
+    // Adjust the tooltip position if it goes out of the screen or outside the img-wrapper
+    if (tooltipTop < imgWrapperRect.top + scrollPosition) {
+      tooltipTop = imgWrapperRect.top + scrollPosition; //ako je manji od toga onda je unutar nav menija, tako da se ovde postavlja da bude odmah ispod toga, u sustiti ovo imgWrapperRect.top je minimum visine na kojoj sme da bude tooltip
+    } else if (tooltipTop > maxTopPosition + scrollPosition) {
+      tooltipTop = maxTopPosition + scrollPosition; //ako je tooltip veci onda prelazi u futer, tako da se ovde postavlja da bude odmah iznad footera/menija sa varijablama
+    }
+
+    if (tooltipLeft < imgWrapperRect.left) {
+      tooltipLeft = imgWrapperRect.left;
+    } else if (tooltipLeft > maxLeftPosition) {
+      tooltipLeft = maxLeftPosition;
+    }
+
+    // Set the final position of the tooltip
+    optionsContainer.style.top = `${tooltipTop}px`;
+    optionsContainer.style.left = `${tooltipLeft}px`;
+
+    // Stop the click event propagation to prevent it from immediately closing the tooltip
+    event.stopPropagation();
+    });
 });
 
 function calculateLeftPosition(prvoSlovo, prviBroj) {
@@ -81,7 +165,7 @@ function calculateLeftPosition(prvoSlovo, prviBroj) {
   } else if (prvoSlovo === 'F') {
     return `calc(calc(3${prviBroj} * 2.440%) + calc(8.4% + 49.5%) + calc(-20 * 2.440%))`;
   } else {
-    console.log('Nije uneto nijedno od navedenih slova.');
+    console.log('Nije uneto nijedno od mogućih slova za teritoriju Srbije.');
     return '';
   }
 }
@@ -100,7 +184,18 @@ function calculateTopPosition(drugoSlovo, drugiBroj) {
   } else if (drugoSlovo === 'S') {
     return `calc(calc(5${drugiBroj} * -1.913%) + calc(100% - 37.8%) + calc(-20 * -1.909%))`;
   } else {
-    console.log('Nije uneto nijedno od navedenih slova.');
+    console.log('Nije uneto nijedno od mogućih slova za teritoriju Srbije.');
     return '';
   }
 }
+
+// Add click event listener to the document
+document.addEventListener('click', event => {
+  const optionsContainer = document.querySelector('.options-container');
+
+  // Check if the clicked element is outside the tooltip
+  if (optionsContainer && !optionsContainer.contains(event.target)) {
+    // Remove the tooltip from the DOM
+    optionsContainer.remove();
+  }
+});
