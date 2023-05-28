@@ -76,13 +76,13 @@ waitForWlqData.then(() => {
   //*Oni kvadracitici koji se ne ponavljaju 10x10
   var kockice = Array.from(new Set(podaciUTM10));
   console.log(`Ukupan broj UTM kvadrata u kojima je zabeleženo prisustvo orhideja: ${kockice.length} UTM 10x10 kvadrata.`);
-  //*Provera koliko u ukupno padataka imaš za T/L/H/Usmeni
+  //*Provera koliko u ukupno padataka imaš za T/L/O/Usmeni
   console.log("Koliko usmenih podataka ima i koji su:", lepPrikaz.filter((utm) => utm.podatak.includes(`Usm`)));
 
   //*Prazne varijable za svaki tip podatka
   var T = new Array();
   var L = new Array();
-  var H = new Array();
+  var O = new Array();
   var tipReference = [];
   let output = "";
 
@@ -106,27 +106,27 @@ waitForWlqData.then(() => {
 
     //*pronalazi svaki utm kome je tip podatka Usmeni/Odnosno ovde treba da bude
     //!PROMENITI U HERBARSKI
-    H[i] = lepPrikaz.filter(
+    O[i] = lepPrikaz.filter(
       (utm) =>
         utm.utm10x10.includes(`${kockice[i]}`) && 
         utm.podatak.includes("Usmeni")
     );
 
     //*ako je duži od 0 onda znači da za taj UTM postoji taj tip podatka i time određuješ koji sve tipovi podatka postoje za svaki pojedinačni utm
-    T[i].length > 0 && L[i].length > 0 && H[i].length > 0
-      ? (tipReference[i] = "TiLiH")
+    T[i].length > 0 && L[i].length > 0 && O[i].length > 0
+      ? (tipReference[i] = "TiLiO")
       : T[i].length > 0 && L[i].length > 0
       ? (tipReference[i] = "TiL")
-      : T[i].length > 0 && H[i].length > 0
-      ? (tipReference[i] = "TiH")
-      : L[i].length > 0 && H[i].length > 0
-      ? (tipReference[i] = "LiH")
+      : T[i].length > 0 && O[i].length > 0
+      ? (tipReference[i] = "TiO")
+      : L[i].length > 0 && O[i].length > 0
+      ? (tipReference[i] = "LiO")
       : T[i].length > 0
       ? (tipReference[i] = "T")
       : L[i].length > 0
       ? (tipReference[i] = "L")
-      : H[i].length >= 0
-      ? (tipReference[i] = "H")
+      : O[i].length >= 0
+      ? (tipReference[i] = "O")
       : console.log("nema bato nista");
 
     //*dugme kada pritisneš prepozna koji UTM treba da ubaci i kako menja tipReference u T/L/H/TiL/TiH/LiH/TiLiH

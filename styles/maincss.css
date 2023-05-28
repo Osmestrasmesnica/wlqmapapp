@@ -25,7 +25,7 @@ body {
   --clr-third: #c2a84d;
   --clr-fourth: #be6c48;
   --clr-fifth: #b55257;
-  --colorH: #2f2f2f;
+  --colorO: #2f2f2f;
   --colorL: #20926c;
   --colorF: #ff0000;
   --clr1: #2f755a;
@@ -937,13 +937,13 @@ input[type="color"]::-moz-color-swatch {
   background-color: var(--colorL);
   transform: translate(-50%, -50%);
 }
-.LiH {
+.LiO {
   height: 1.5%;
   width: 2%;
   background: linear-gradient(
     180deg,
-    var(--colorH),
-    var(--colorH) 49%,
+    var(--colorO),
+    var(--colorO) 49%,
     white 49%,
     var(--colorL) 51%
   );
@@ -952,11 +952,11 @@ input[type="color"]::-moz-color-swatch {
   position: absolute;
   top: calc(calc(00 * -1.916%) + calc(81.3%) + calc(10 * 1.916%));
   left: calc(calc(00 * 2.4333%) + calc(57.9%) + calc(-20 * 2.43%));
-  border-color: var(--colorH);
+  border-color: var(--colorO);
   background-color: var(--colorL);
   transform: translate(-50%, -50%);
 }
-.TiH {
+.TiO {
   box-sizing: border-box;
   position: absolute;
   top: calc(calc(00 * -1.916%) + calc(81.3%) + calc(10 * 1.916%));
@@ -964,10 +964,10 @@ input[type="color"]::-moz-color-swatch {
   height: 1.5%;
   width: 2%;
   border-radius: 3rem;
-  background: conic-gradient(var(--colorF) 50%, var(--colorH) 0 180%);
+  background: conic-gradient(var(--colorF) 50%, var(--colorO) 0 180%);
   transform: translate(-50%, -50%);
 }
-.TiLiH {
+.TiLiO {
   box-sizing: border-box;
   position: absolute;
   top: calc(calc(00 * -1.916%) + calc(81.3%) + calc(10 * 1.916%));
@@ -977,7 +977,7 @@ input[type="color"]::-moz-color-swatch {
   border-radius: 3rem;
   background: conic-gradient(
     var(--colorF) 33%,
-    var(--colorH) 0 66%,
+    var(--colorO) 0 66%,
     var(--colorL) 0
   );
   transform: translate(-50%, -50%);
@@ -1018,7 +1018,7 @@ input[type="color"]::-moz-color-swatch {
   transform: translate(-50%, -50%);
 }
 
-.H {
+.O {
   box-sizing: border-box;
   position: absolute;
   top: calc(calc(00 * -1.916%) + calc(81.3%) + calc(10 * 1.916%));
@@ -1026,7 +1026,7 @@ input[type="color"]::-moz-color-swatch {
   height: 1.5%;
   width: 2%;
   border-radius: 3rem;
-  background-color: var(--colorH);
+  background-color: var(--colorO);
   transform: translate(-50%, -50%);
 }
 
