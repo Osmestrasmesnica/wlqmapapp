@@ -30,6 +30,7 @@ let selectedSpeciesData; //vrsta koju selektujes u ili pises u input
 let UTMOdabraneVrste;
 let output = "";
 let tipPodatakaPoUTM;
+let productsContainer = document.querySelector(".products"); // Dohvatanje elementa koji sadrži proizvode
 
 importedData.then(() => {
   const mapData = filterAndMapData(WlqData);
@@ -42,6 +43,9 @@ importedData.then(() => {
     var L = new Array();
     var O = new Array();
     var uniqueUTM = [];
+    // Uklanjanje prethodnih div elemenata iz containera
+    let output = "";
+    let productsContainer = "";
 
     //* filtriras samo podatke koji sadrze vrstu/takson koji si selektovao
     const species = select.value !== "" ? select.value : input.value;
@@ -102,7 +106,7 @@ importedData.then(() => {
 
       let btnSelectedTaxon = document.querySelector(".togetherTaxa");
       btnSelectedTaxon.addEventListener("click", function () {
-        const proba101 = UTMOdabraneVrste[i];
+        UTMOdabraneVrste.forEach(function (proba101, i){
         let prvoSlovo1 = proba101.substring(0, 1);
         let drugoSlovo1 = proba101.substring(1, 2);
         let prviBroj1 = proba101.substring(2, 3);
@@ -158,6 +162,7 @@ importedData.then(() => {
 
         document.getElementById(`product${i}`).className = tipPodatakaPoUTM[i];
       });
+    });
 
       output += `<div class="product" id="product${i}"></div>`;
       document.querySelector(".products").innerHTML = output;
