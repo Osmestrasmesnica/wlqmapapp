@@ -13,17 +13,15 @@ const waitForWlqData = new Promise((resolve) => {
 
 waitForWlqData.then(() => {
   console.log("Svi uneti podaci:", WlqData);
-  // your code here
-  //TODO promeniti u skladu sa kako si nazvao array sa podacima (ovde je proba123)
   //TODO promeniti zaglavlje kolone ako nije ustanovljen uniformni naziv (ovde je UTM_10x10)
   //!Konstanta koja sadrži podatke sa svim vrstama za koje postoje UTM10x10 kvadratići, pritom moraju da su lepo nazvani tj da sadrži 4 karatkera (potencialno napraviti da su prve 2 slova, druge 2 broj), da nisu prazne/0, da ne piše "Neprecizan podatak"
   //!Kolona gde su UTM kvadratići se ovde zove UTM_10x10 i bilo bi lepo da se uniformiše kako će se ova kolona zvati u EXCELU
+  
   //*Samo oni podaci za koje postoji već UTM odrađen, ovde vidiš šta sve sadrže
   const podaciUTM = WlqData.filter(
     (podatak) =>
       podatak.UTM_10x10 !== undefined &&
-      podatak.UTM_10x10 !==
-        "Neprecizan podatak" /*&& podatak.Tip_podatka == "Terenski"*/
+      podatak.UTM_10x10 !== "Neprecizan podatak" /*&& podatak.Tip_podatka == "Terenski"*/
   );
   //console.log(podaciUTM);
   //console.table(podaciUTM);
@@ -36,6 +34,7 @@ waitForWlqData.then(() => {
       vrsta: i.PunNazivTaksona,
       utm10x10: i.UTM_10x10,
       podatak: i.Tip_podatka,
+      // ovde moze da se stavi stagod zelimo jos da prikazemo ili racunamo */
     };
   });
   console.log("Ovde su filtrirani podaci za koje postoji vrednost u koloni UTM_10x10 i prikazane su u ovom slučaju samo kolone za takson, utm i tip podatka:", lepPrikaz);
@@ -55,13 +54,16 @@ waitForWlqData.then(() => {
   }, {}); //ne smeš da zaboraviš prazan skup da ubaciš ovde ,{});
   console.log("Koliko koje vrste ima:");
   console.table(kolikoKojeVrste);
+
   //*Broj vrsta
   console.log(`Ukupno je zabeleženo ${Object.keys(kolikoKojeVrste).length} taksona`);
 
   //*Vrednosti svih 10x10 kvadratica
   const podaciUTM10 = podaciUTM.map((podatak) => podatak.UTM_10x10);
   // console.log(podaciUTM10);
+  
   //*Koliko kog UTM10x10 imas
+
   const kolikoCega = podaciUTM10.reduce(function (obj, item) {
     if (!obj[item]) {
       obj[item] = 0;
@@ -105,7 +107,6 @@ waitForWlqData.then(() => {
     );
 
     //*pronalazi svaki utm kome je tip podatka Usmeni/Odnosno ovde treba da bude
-    //!PROMENITI U HERBARSKI
     O[i] = lepPrikaz.filter(
       (utm) =>
         utm.utm10x10.includes(`${kockice[i]}`) && 

@@ -1,5 +1,6 @@
 let filteredData; //*! sto ne radi ovo globalna varijabla */
-// Populate the select element with data from a previously imported JSON file
+// kako mi ovo radi bez ono uvodnog dela gde cekam dase importuje WlqData?
+// Populate the select element with data from a previously imported data
 function populateSelect() {
     // Filter data based on specific conditions
     const filteredData = WlqData.filter(item => item.UTM_10x10 !== undefined && item.UTM_10x10 !== "Neprecizan podatak"); //! ovo treba da ispravis da bira ono sto si selektovao u dropdown//

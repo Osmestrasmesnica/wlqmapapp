@@ -1,4 +1,3 @@
-//todo napravi da možeš i da biraš kakav će biti taj div isto (T/L/H)
 const myInput10x10 = document.querySelector('[name="add10x10"]');
 let btn10x10 = document.querySelector('.btn10x10');
 let coordinatesContainer = document.getElementById('coordinates-container');
@@ -83,7 +82,7 @@ btn10x10.addEventListener('click', event => {
     optionsContainer.className = 'options-container';
 
     // Create the options
-    const options = ['T', 'L', 'H', 'sumnjiv', 'netacanX'];
+    const options = ['T', 'L', 'O', 'sumnjiv', 'netacanX'];
 
     // Create and append the option elements
     options.forEach(option => {
