@@ -15,6 +15,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     />
+    <!-- ZA BACK TO TOP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- load Material Icons font -->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -46,6 +50,7 @@
   </head>
   <body>
     <div class="all-wrapper">
+      <a id="BTT"></a>
       <!-- NAVIGATION BAR-->
       <nav>
         <div class="nav-wrapper">
@@ -171,7 +176,7 @@
           </div>
 
           <!-- opadajuci meni gde biras sta ces da pretrazujes SVE/ROD/TAKSON -->
-          <div class="dataType">
+          <div class="dataType" style="display: none;">
             <select name="selectdataType" id="selectdataType" placceholder="Choose type of data" onchange="">
               <option value="">-- Select data type --</option>
             </select>
@@ -194,7 +199,7 @@
 
             <!-- dugme za dodavanje SVE/TAKSON/RED -->
             <div class="grp_allData">
-              <button type="button" class="button btn-secondary" id="btnAllData">ADD DATA</button>
+              <button type="button" class="button btn-secondary" id="btnAllData">ALL DATA</button>
               <button type="button" class="togetherTaxa btn-secondary" id=".togetherTaxa">ADD TAXA</button>
             </div>
           </div>

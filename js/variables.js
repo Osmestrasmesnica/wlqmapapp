@@ -12,3 +12,23 @@ const liveUpdate = (event) => {
 inputElements.forEach((input) => {
     input.addEventListener('input', liveUpdate);
 });
+
+//BTT btn - dugme koje vraca na pocetak ako postoji skrolovanje
+var btn = $('#BTT');
+
+$(window).scroll(function() {
+  var windowHeight = $(window).height();
+  var documentHeight = $(document).height();
+  var scrollPercentage = ($(window).scrollTop() / (documentHeight - windowHeight)) * 100;
+
+  if ($(window).scrollTop() > 0 && (scrollPercentage > 80 || $(window).scrollTop() + windowHeight === documentHeight)) {
+    btn.addClass('show');
+  } else {
+    btn.removeClass('show');
+  }
+});
+
+btn.on('click', function(e) {
+  e.preventDefault();
+  $('html, body').animate({scrollTop: 0}, 200);
+});

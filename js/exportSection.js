@@ -22,15 +22,21 @@ function exportMapImage(format, fileName) {
 
 // Listen for click events on the export buttons
 document.getElementById('png').addEventListener('click', function() {
-  exportMapImage('png', 'map.png');
+  var selectedValue = document.getElementById('selected').value;
+  var fileName = selectedValue ? selectedValue + '.png' : 'allData.png';
+  exportMapImage('png', fileName);
 });
 
 document.getElementById('jpg').addEventListener('click', function() {
-  exportMapImage('jpeg', 'map.jpg');
+  var selectedValue = document.getElementById('selected').value;
+  var fileName = selectedValue ? selectedValue + '.jpg' : 'allData.jpg';
+  exportMapImage('jpeg', fileName);
 });
 
 document.getElementById('tiff').addEventListener('click', function() {
-  exportMapImage('tiff', 'map.tif');
+  var selectedValue = document.getElementById('selected').value;
+  var fileName = selectedValue ? selectedValue + '.tif' : 'allData.tif';
+  exportMapImage('tiff', fileName);
 });
 
 document.getElementById('svg').addEventListener('click', function() {
@@ -40,9 +46,12 @@ document.getElementById('svg').addEventListener('click', function() {
   // Use dom-to-image to capture the map as an SVG
   domtoimage.toSvg(mapElement)
     .then(function(dataUrl) {
+      var selectedValue = document.getElementById('selected').value;
+      var fileName = selectedValue ? selectedValue + '.svg' : 'allData.svg';
+
       // Create a download link for the image
       var link = document.createElement('a');
-      link.download = 'map.svg';
+      link.download = fileName;
       link.href = dataUrl;
       document.body.appendChild(link);
       link.click();
@@ -52,4 +61,3 @@ document.getElementById('svg').addEventListener('click', function() {
       console.error('Error capturing map:', error);
     });
 });
-

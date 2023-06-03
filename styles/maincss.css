@@ -1262,3 +1262,43 @@ input[type="color"]::-moz-color-swatch {
   font-size: 0.5rem;
  }
 }
+
+/* BTT-btn Back to Top dugme */
+#BTT {
+  font-size: 0.7rem;
+  display: inline-block;
+  background-color: var(--clr2);
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  border-radius: 10px;
+  position: fixed;
+  bottom: 1.3rem;
+  right: 1rem;
+  transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+#BTT::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 1.9rem;
+  color: var(--clr1);
+}
+#BTT:hover {
+  cursor: pointer;
+  background-color: var(--clr3);
+}
+#BTT:active {
+  background-color: var(--clr3);
+  opacity: 0.7;
+}
+#BTT.show {
+  opacity: 1;
+  visibility: visible;
+}
