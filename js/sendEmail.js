@@ -38,7 +38,7 @@ form.addEventListener("submit", function(event) {
   formData.append("message", messageInput.value);
 
   // Use the EmailJS library to send the email
-  emailjs.send("service_gsiaajn", "template_zua027e", {
+  emailjs.send("EMAILJS_SERVICE_ID", "EMAILJS_TEMPLATE_ID", {
     name: formData.get("name"),
     email: formData.get("email"),
     subject: formData.get("subject"),
