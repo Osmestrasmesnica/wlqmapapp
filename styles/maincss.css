@@ -1200,7 +1200,7 @@ input[type="color"]::-moz-color-swatch {
 
 /* minimum 1060x780px */
 /* kada je ekran manji od ovoga da ide sve vertikalno a ne horizontalno */
-@media screen and (max-width: 999px) {
+@media screen and (max-width: 800px) {
   .hero-wrapper {
     flex-direction: column;
   }
