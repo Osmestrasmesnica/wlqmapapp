@@ -588,7 +588,7 @@ nav label {
   }
 
   nav #toggle:checked ~ .menu {
-    height: 100dvh;
+    height: 100vh;
     margin: 0.5rem;
     padding: 2rem;
     border-top: 2px var(--clr2) solid ;
@@ -1204,6 +1204,9 @@ input[type="color"]::-moz-color-swatch {
   .hero-wrapper {
     flex-direction: column;
   }
+  .image {
+    height: auto;
+  }
   body {
     height: 100%;
   }
@@ -1212,6 +1215,9 @@ input[type="color"]::-moz-color-swatch {
 @media screen and (max-height: 599px) {
   .hero-wrapper {
     flex-direction: column;
+  }
+  .image {
+    height: auto;
   }
   body {
     height: 100%;
