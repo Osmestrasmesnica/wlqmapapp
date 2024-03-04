@@ -850,7 +850,7 @@ input[type="color"]::-moz-color-swatch {
   position: absolute;
   height: 1.5%;
   width: 2%;
-  border-radius: 3rem;
+  border-radius: 10rem;
   top: calc(calc(00 * -1.9167%) + calc(81.3%) + calc(10 * 1.9167%));
   left: calc(calc(00 * 2.4333%) + calc(57.9%) + calc(-20 * 2.43%));
   transform: translate(-50%, -50%);
